@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% block title %}Question - F1 Tire Quiz{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h2>{{ question["question"] }}</h2>
+
+    {% if question.image %}
+        <img src="{{ url_for('static', filename='images/' ~ question.image) }}" 
+             alt="Question image" class="img-fluid my-4" style="max-width: 500px;">
+    {% endif %}
+</div>
+
+<form method="POST" class="mt-4">
+    <div class="form-group">
+        {% for option in question["options"] %}
+            <div class="form-check d-flex align-items-center mb-3">
+                <input class="form-check-input mt-1" type="radio" name="answer" value="{{ option.label }}" id="{{ option.label }}">
+                <label class="form-check-label ml-2" for="{{ option.label }}">
+                    {{ option.label }}
+                    {% if option.img %}
+                        <img src="{{ url_for('static', filename='images/' ~ option.img) }}" 
+                             alt="Option image" style="height: 40px; margin-left: 10px;">
+                    {% endif %}
+                </label>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if errors.answer %}
+        <div class="alert alert-danger">{{ errors.answer }}</div>
+    {% endif %}
+
+    <button type="submit" class="btn btn-primary">Next</button>
+</form>
+{% endblock %}

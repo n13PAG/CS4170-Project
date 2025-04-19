@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block title %}Quiz Results - F1 Tire Quiz{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h2>Quiz Completed!</h2>
+    <p class="lead">You scored {{ score }} out of {{ total }}</p>
+</div>
+
+<hr>
+
+{% for result in results %}
+  <div class="mb-4">
+    <h5>{{ loop.index }}. {{ result.question }}</h5>
+    <p>Your answer: <strong>{{ result.user_answer }}</strong></p>
+    <p>Correct answer: <strong>{{ result.correct_answer }}</strong></p>
+    {% if result.is_correct %}
+      <p class="text-success">✔ Correct!</p>
+    {% else %}
+      <p class="text-danger">✘ Incorrect</p>
+    {% endif %}
+  </div>
+  <hr>
+{% endfor %}
+
+<div class="text-center">
+  <a href="{{ url_for('quiz_start') }}" class="btn btn-secondary">Retake Quiz</a>
+</div>
+{% endblock %}
