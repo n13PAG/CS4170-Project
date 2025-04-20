@@ -10,7 +10,7 @@ quiz_questions = {
     "1": {
         "quiz_id": "1",
         "question": "Which Tire compound is shown in the image?",
-        "image": "question_1.png",
+        "image": "YELLOW_tire.png",
         "options": [
             {"label": "Medium"},
             {"label": "Wet"},
@@ -24,10 +24,10 @@ quiz_questions = {
         "quiz_id": "2",
         "question": "Your car is currently on Soft tires with very little wear and it's beginning to rain on the track. What is the right action?",
         "options": [
-            {"label": "Switch to Red:", "img": "question_2_red.png"},
-            {"label": "Switch to Blue:", "img": "question_2_blue.png"},
-            {"label": "Switch to White:", "img": "question_2_white.png"},
-            {"label": "Switch to Green:", "img": "question_2_green.png"}
+            {"label": "Switch to Red:", "img": "RED_tire.png"},
+            {"label": "Switch to Blue:", "img": "BLUE_tire.png"},
+            {"label": "Switch to White:", "img": "WHITE_tire.png"},
+            {"label": "Switch to Green:", "img": "GREEN_tire.png"}
         ],
         "correct": "Switch to Green:",
         "next_question": "3"
