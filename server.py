@@ -46,8 +46,48 @@ quiz_questions = {
 }
 
 #
+# Tire Info
+#
+tire_info = {
+    "Wet": {
+        "id": "1",
+        "color": "blue",
+        "description": "The full wet tyres are the most effective for heavy rain, capable of dispersing impressive quantities of water. But if it rains heavily, visibility rather than grip causes issues, leading to race stoppages on occasions. The profile (deeper grooves)delivers increased resistance to aquaplaning, which gives the tyre more grip in heavy rain.",
+        "image": "full_wet.png"
+    },
+    "Intermediate": {
+        "id": "2",
+        "color": "green",
+        "description": "The intermediates are the most versatile of the rain tyres. They can be used on a wet track with no standing water, as well as a drying surface. The compound has been designed to have a wide working range, guaranteeing a wide crossover window both with the slicks and the full wets.",
+        "image": "intermediate.png"
+    },
+    "Slicks" : {
+        "Soft": {
+            "id": "3",
+            "color": "red",
+            "description": "The red tire signifies the soft compound, designed for maximum grip and performance over shorter stints. It offers top lap times but wears out quickly, ideal for qualifying and short races.",
+            "image": "soft.png"
+        },
+        "Medium": {
+            "id": "4",
+            "color": "yellow",
+            "description": "The red tire signifies the soft compound, designed for maximum grip and performance over shorter stints. It offers top lap times but wears out quickly, ideal for qualifying and short races.",
+            "image": "medium.png"
+        },
+        "Hard": {
+            "id": "5",
+            "color": "white",
+            "description": "The white tire, known as the hard compound, offers maximum durability and longevity, ideal for long stints and hot conditions.",
+            "image": "hard.png"
+        }
+    }
+}
+
+#
 # home route
 #
+
+
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -56,6 +96,17 @@ def home():
 #
 # Space for Natal routes
 #
+@app.route('/tire_types')
+def tire_types():
+    return render_template('tire_types.html', tire_info=tire_info)
+
+@app.route('/race_strategy')
+def race_strategy():
+    return render_template('race_strategy.html')
+
+@app.route('/switching_tires')
+def switching_tires():
+    return render_template('switching_tires.html')
 
 
 #
@@ -71,6 +122,7 @@ def quiz_start():
 #
 # quiz route
 #
+
 
 @app.route('/quiz/<quiz_id>', methods=['GET', 'POST'])
 def quiz(quiz_id):
@@ -101,7 +153,8 @@ def quiz(quiz_id):
             session['answers'][quiz_id] = selected_answer
             session.modified = True
 
-            is_correct = selected_answer.lower() == question['correct'].strip().lower()
+            is_correct = selected_answer.lower(
+            ) == question['correct'].strip().lower()
 
             return render_template(
                 'quiz.html',
@@ -126,7 +179,6 @@ def quiz(quiz_id):
         question_number=question_number,
         total_questions=total_questions
     )
-
 
 
 #
