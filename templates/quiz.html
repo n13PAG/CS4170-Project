@@ -2,12 +2,21 @@
 {% block title %}Question - F1 Tire Quiz{% endblock %}
 
 {% block content %}
+<div class="text-center mb-4">
+  <h4>Quiz — Question {{ question_number }} of {{ total_questions }}</h4>
+</div>
+
 <div class="text-center">
   <h2>{{ question["question"] }}</h2>
 
   {% if question.image %}
-    <img src="{{ url_for('static', filename='images/' ~ question.image) }}" 
-         alt="Question image" class="img-fluid my-4" style="max-width: 500px;">
+    {% if question.quiz_id == "2" %}
+      <img src="{{ url_for('static', filename='images/' ~ question.image) }}" 
+           alt="Question image" class="img-fluid my-4" style="max-width: 700px;">
+    {% else %}
+      <img src="{{ url_for('static', filename='images/' ~ question.image) }}" 
+           alt="Question image" class="img-fluid my-4" style="max-width: 500px;">
+    {% endif %}
   {% endif %}
 </div>
 
@@ -34,7 +43,15 @@
           <div class="quiz-box text-center font-weight-bold">
             {{ option.label }}
             {% if option.img %}
-              <img src="{{ url_for('static', filename='images/' ~ option.img) }}" alt="option image" style="height: 40px; margin-left: 10px;">
+              {% if question.quiz_id == "2" %}
+                <div class="mt-2">
+                  <img src="{{ url_for('static', filename='images/' ~ option.img) }}" 
+                       alt="option image" style="height: 120px; display: block; margin: 10px auto;">
+                </div>
+              {% else %}
+                <img src="{{ url_for('static', filename='images/' ~ option.img) }}" 
+                     alt="option image" style="height: 40px; margin-left: 10px;">
+              {% endif %}
             {% endif %}
           </div>
         </label>
@@ -67,3 +84,4 @@
   </div>
 {% endif %}
 {% endblock %}
+

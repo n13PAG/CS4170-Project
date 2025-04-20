@@ -10,7 +10,7 @@ quiz_questions = {
     "1": {
         "quiz_id": "1",
         "question": "Which Tire compound is shown in the image?",
-        "image": "test.png",
+        "image": "question_1.png",
         "options": [
             {"label": "Medium"},
             {"label": "Wet"},
@@ -24,18 +24,18 @@ quiz_questions = {
         "quiz_id": "2",
         "question": "Your car is currently on Soft tires with very little wear and it's beginning to rain on the track. What is the right action?",
         "options": [
-            {"label": "Switch to RED", "img": "test.png"},
-            {"label": "Switch to BLUE", "img": "test.png"},
-            {"label": "Switch to WHITE", "img": "test.png"},
-            {"label": "Switch to GREEN", "img": "test.png"}
+            {"label": "Switch to Red:", "img": "question_2_red.png"},
+            {"label": "Switch to Blue:", "img": "question_2_blue.png"},
+            {"label": "Switch to White:", "img": "question_2_white.png"},
+            {"label": "Switch to Green:", "img": "question_2_green.png"}
         ],
-        "correct": "Switch to GREEN",
+        "correct": "Switch to Green:",
         "next_question": "3"
     },
     "3": {
         "quiz_id": "3",
         "question": "This is the current status of your tires. There are 18 laps left. What should you do?",
-        "image": "test.png",
+        "image": "question_3.png",
         "options": [
             {"label": "Box the lap and switch to a new set of tires."},
             {"label": "Go for a few more lap. Not all the tires have lots of wear."}
@@ -85,6 +85,10 @@ def quiz(quiz_id):
     is_correct = None
     errors = {}
 
+    # Track question number (as int) and total questions
+    question_number = int(quiz_id)
+    total_questions = len(quiz_questions)
+
     if 'answers' not in session:
         session['answers'] = {}
 
@@ -106,7 +110,9 @@ def quiz(quiz_id):
                 is_correct=is_correct,
                 errors=errors,
                 show_feedback=True,
-                next_question=question.get('next_question', 'end')
+                next_question=question.get('next_question', 'end'),
+                question_number=question_number,
+                total_questions=total_questions
             )
 
     return render_template(
@@ -116,8 +122,11 @@ def quiz(quiz_id):
         is_correct=None,
         errors=errors,
         show_feedback=False,
-        next_question=question.get('next_question', 'end')
+        next_question=question.get('next_question', 'end'),
+        question_number=question_number,
+        total_questions=total_questions
     )
+
 
 
 #
