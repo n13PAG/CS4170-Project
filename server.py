@@ -68,34 +68,58 @@ def quiz_start():
         return redirect(url_for('quiz', quiz_id='1'))
     return render_template('quiz_start.html')
 
+#
+# quiz route
+#
+
 @app.route('/quiz/<quiz_id>', methods=['GET', 'POST'])
 def quiz(quiz_id):
+    if quiz_id == "end":
+        return redirect(url_for('quiz_results'))
+
     if quiz_id not in quiz_questions:
         return "Quiz question not found", 404
 
     question = quiz_questions[quiz_id]
+    selected_answer = None
+    is_correct = None
+    errors = {}
 
     if 'answers' not in session:
         session['answers'] = {}
 
     if request.method == 'POST':
         selected_answer = request.form.get('answer', '').strip()
-        errors = {}
 
         if not selected_answer:
             errors['answer'] = "Please select an answer."
-            return render_template('quiz.html', question=question, errors=errors)
+        else:
+            session['answers'][quiz_id] = selected_answer
+            session.modified = True
 
-        session['answers'][quiz_id] = selected_answer
-        session.modified = True
+            is_correct = selected_answer.lower() == question['correct'].strip().lower()
 
-        next_q = question.get('next_question', 'end')
-        if next_q == 'end':
-            return redirect(url_for('quiz_results'))
+            return render_template(
+                'quiz.html',
+                question=question,
+                selected=selected_answer,
+                is_correct=is_correct,
+                errors=errors,
+                show_feedback=True,
+                next_question=question.get('next_question', 'end')
+            )
 
-        return redirect(url_for('quiz', quiz_id=next_q))
+    return render_template(
+        'quiz.html',
+        question=question,
+        selected=None,
+        is_correct=None,
+        errors=errors,
+        show_feedback=False,
+        next_question=question.get('next_question', 'end')
+    )
 
-    return render_template('quiz.html', question=question, errors={})
+
 #
 # quiz_results route
 #

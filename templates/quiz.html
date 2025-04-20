@@ -3,36 +3,67 @@
 
 {% block content %}
 <div class="text-center">
-    <h2>{{ question["question"] }}</h2>
+  <h2>{{ question["question"] }}</h2>
 
-    {% if question.image %}
-        <img src="{{ url_for('static', filename='images/' ~ question.image) }}" 
-             alt="Question image" class="img-fluid my-4" style="max-width: 500px;">
-    {% endif %}
+  {% if question.image %}
+    <img src="{{ url_for('static', filename='images/' ~ question.image) }}" 
+         alt="Question image" class="img-fluid my-4" style="max-width: 500px;">
+  {% endif %}
 </div>
 
-<form method="POST" class="mt-4">
-    <div class="row">
-      {% for option in question["options"] %}
-        <div class="col-md-6 mb-3">
-          <label class="quiz-option">
-            <input type="radio" name="answer" value="{{ option.label }}" class="d-none">
-            <div class="quiz-box text-center font-weight-bold">
-              {{ option.label }}
-            </div>
-          </label>
-        </div>
-      {% endfor %}
-    </div>
-  
-    {% if errors.answer %}
-      <div class="alert alert-danger">{{ errors.answer }}</div>
-    {% endif %}
-  
+<form method="POST" class="mt-4" id="quiz-form">
+  <div class="row">
+    {% for option in question["options"] %}
+      {% set selected_class = '' %}
+
+      {% if show_feedback %}
+        {% if option.label == selected %}
+          {% if is_correct %}
+            {% set selected_class = 'correct' %}
+          {% else %}
+            {% set selected_class = 'incorrect' %}
+          {% endif %}
+        {% elif option.label == question.correct and not is_correct %}
+          {% set selected_class = 'correct' %}
+        {% endif %}
+      {% endif %}
+
+      <div class="col-md-6 mb-3">
+        <label class="quiz-option {{ selected_class }}">
+          <input type="radio" name="answer" value="{{ option.label }}" class="d-none" {% if option.label == selected %}checked{% endif %}>
+          <div class="quiz-box text-center font-weight-bold">
+            {{ option.label }}
+            {% if option.img %}
+              <img src="{{ url_for('static', filename='images/' ~ option.img) }}" alt="option image" style="height: 40px; margin-left: 10px;">
+            {% endif %}
+          </div>
+        </label>
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if errors.answer %}
+    <div class="alert alert-danger">{{ errors.answer }}</div>
+  {% endif %}
+
+  {% if not show_feedback %}
     <div class="text-center">
-      <button type="submit" class="btn btn-primary mt-3">Next</button>
+      <button type="submit" class="btn btn-primary mt-3">Submit Answer</button>
     </div>
-  </form>
-  
-  
+  {% endif %}
+</form>
+
+{% if show_feedback %}
+  <div class="text-center mt-4">
+    {% if is_correct %}
+      <img src="{{ url_for('static', filename='images/check.png') }}" alt="Correct" style="height: 60px;">
+    {% else %}
+      <img src="{{ url_for('static', filename='images/x.png') }}" alt="Incorrect" style="height: 60px;">
+    {% endif %}
+  </div>
+
+  <div class="text-center">
+    <a href="{{ url_for('quiz', quiz_id=next_question) }}" class="btn btn-success mt-3">Next Question</a>
+  </div>
+{% endif %}
 {% endblock %}

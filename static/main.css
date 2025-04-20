@@ -1,12 +1,16 @@
+/* General body styling */
 body {
     font-family: 'Segoe UI', sans-serif;
-}
-
-.quiz-option {
+    background-color: #f8f9fa;
+  }
+  
+  /* Layout for the answer option labels */
+  .quiz-option {
     display: block;
     cursor: pointer;
   }
   
+  /* Style for the quiz answer box */
   .quiz-box {
     padding: 1.5rem;
     border: 2px solid #ccc;
@@ -15,10 +19,28 @@ body {
     transition: all 0.2s ease-in-out;
   }
   
-  .quiz-option input[type="radio"]:checked + .quiz-box {
-    background-color: #007bff;         /* blue background */
-    border-color: #0056b3;             /* darker blue border */
-    color: white;                      /* white text */
+  /* Hover effect */
+  .quiz-box:hover {
+    background-color: #e2e6ea;
   }
   
+  /* When selected (before feedback), make it blue */
+  .quiz-option input[type="radio"]:checked + .quiz-box {
+    background-color: #007bff;
+    border-color: #0056b3;
+    color: white;
+  }
+  
+  /* Feedback styling after answer is submitted */
+  .quiz-option.correct .quiz-box {
+    background-color: #28a745 !important;  /* green */
+    border-color: #1e7e34 !important;
+    color: white;
+  }
+  
+  .quiz-option.incorrect .quiz-box {
+    background-color: #dc3545 !important;  /* red */
+    border-color: #bd2130 !important;
+    color: white;
+  }
   
