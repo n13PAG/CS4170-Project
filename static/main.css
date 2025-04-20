@@ -1,3 +1,24 @@
 body {
     font-family: 'Segoe UI', sans-serif;
 }
+
+.quiz-option {
+    display: block;
+    cursor: pointer;
+  }
+  
+  .quiz-box {
+    padding: 1.5rem;
+    border: 2px solid #ccc;
+    border-radius: 0.25rem;
+    background-color: #f8f9fa;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .quiz-option input[type="radio"]:checked + .quiz-box {
+    background-color: #007bff;         /* blue background */
+    border-color: #0056b3;             /* darker blue border */
+    color: white;                      /* white text */
+  }
+  
+  
