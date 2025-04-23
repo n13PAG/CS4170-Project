@@ -1,3 +1,5 @@
+import datetime
+import time
 from flask import Flask, render_template, request, redirect, url_for, session
 app = Flask(__name__)
 app.secret_key = 'secret-key'  # Required for session usage
@@ -91,31 +93,90 @@ tire_info = {
     }
 }
 
+
+#
+#   Time Tracking
+#
+current_lesson = 0
+lesson_timing = {
+    "1": {
+        "name": "Tire Types",
+        "time_spent": 0,
+        "lesson_start_time": 0,
+        "lesson_end_time": 0,
+    },
+    "2": {
+        "name": "Race Strategy",
+        "time_spent": 0,
+        "lesson_start_time": 0,
+        "lesson_end_time": 0,
+    },
+    "3": {
+        "name": "Switching Tires",
+        "time_spent": 0,
+        "lesson_start_time": 0,
+        "lesson_end_time": 0,
+    }
+}
+
 #
 # home route
 #
+def track_time(lesson_num):
+    global current_lesson
+    if lesson_num == current_lesson:
+        return
+    
+    if current_lesson != 0:
+        # Calculate time spent in the previous lesson
+        lesson_data = lesson_timing[str(current_lesson)]
+        lesson_data["lesson_end_time"] = time.time()
+        lesson_data["time_spent"] += lesson_data["lesson_end_time"] - lesson_data["lesson_start_time"]
+        
+        # Reset times
+        lesson_data["lesson_start_time"] = 0
+        lesson_data["lesson_end_time"] = 0
 
+    if lesson_num == 0:
+        return
+
+    # Start Timer on next lesson
+    current_lesson = lesson_num
+    lesson_data = lesson_timing[str(current_lesson)]
+    lesson_data["lesson_start_time"] = time.time()
+
+    print(lesson_timing)
 
 @app.route('/')
 def home():
+    track_time(0)
     return render_template('home.html')
 
 
 #
 # Space for Natal routes
 #
-@app.route('/tire_types')
+@app.route('/learn/<lesson_num>')
+def learn(lesson_num):
+    if lesson_num == 1:
+        tire_types()
+    elif lesson_num == 2:
+        race_strategy()
+    else:
+        switching_tires()
+
 def tire_types():
+    track_time(1)
     return render_template('tire_types.html', tire_info=tire_info)
 
 
-@app.route('/race_strategy')
 def race_strategy():
+    track_time(2)
     return render_template('race_strategy.html')
 
 
-@app.route('/switching_tires')
 def switching_tires():
+    track_time(3)
     return render_template('switching_tires.html')
 
 
@@ -124,6 +185,7 @@ def switching_tires():
 #
 @app.route('/quiz_start', methods=['GET', 'POST'])
 def quiz_start():
+    track_time(0)
     if request.method == 'POST':
         session['answers'] = {}
         return redirect(url_for('quiz', quiz_id='1'))
