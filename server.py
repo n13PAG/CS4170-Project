@@ -49,37 +49,45 @@ quiz_questions = {
 # Tire Info
 #
 tire_info = {
-    "Wet": {
-        "id": "1",
+    "0": {
+        "id": "0",
+        "type": "Wet",
+        "name": "Wet",
         "color": "blue",
-        "description": "The full wet tyres are the most effective for heavy rain, capable of dispersing impressive quantities of water. But if it rains heavily, visibility rather than grip causes issues, leading to race stoppages on occasions. The profile (deeper grooves)delivers increased resistance to aquaplaning, which gives the tyre more grip in heavy rain.",
-        "image": "full_wet.png"
+        "description": "The full wet tyres are the most effective for heavy rain, capable of dispersing impressive quantities of water. But if it rains heavily, visibility rather than grip causes issues, leading to race stoppages on occasions. The profile (deeper grooves) delivers increased resistance to aquaplaning, which gives the tyre more grip in heavy rain.",
+        "image": "BLUE_tire.png"
     },
-    "Intermediate": {
-        "id": "2",
+    "1": {
+        "id": "1",
+        "type": "Intermediate",
+        "name": "Intermediate",
         "color": "green",
         "description": "The intermediates are the most versatile of the rain tyres. They can be used on a wet track with no standing water, as well as a drying surface. The compound has been designed to have a wide working range, guaranteeing a wide crossover window both with the slicks and the full wets.",
-        "image": "intermediate.png"
+        "image": "GREEN_tire.png"
     },
-    "Slicks" : {
-        "Soft": {
-            "id": "3",
-            "color": "red",
-            "description": "The red tire signifies the soft compound, designed for maximum grip and performance over shorter stints. It offers top lap times but wears out quickly, ideal for qualifying and short races.",
-            "image": "soft.png"
-        },
-        "Medium": {
-            "id": "4",
-            "color": "yellow",
-            "description": "The red tire signifies the soft compound, designed for maximum grip and performance over shorter stints. It offers top lap times but wears out quickly, ideal for qualifying and short races.",
-            "image": "medium.png"
-        },
-        "Hard": {
-            "id": "5",
-            "color": "white",
-            "description": "The white tire, known as the hard compound, offers maximum durability and longevity, ideal for long stints and hot conditions.",
-            "image": "hard.png"
-        }
+    "2": {
+        "id": "2",
+        "type": "Slick",
+        "name": "Soft",
+        "color": "red",
+        "description": "The red tire signifies the soft compound, designed for maximum grip and performance over shorter stints. It offers top lap times but wears out quickly, ideal for qualifying and short races.",
+        "image": "RED_tire.png"
+    },
+    "3": {
+        "id": "3",
+        "type": "Slick",
+        "name": "Medium",
+        "color": "yellow",
+        "description": "The red tire signifies the soft compound, designed for maximum grip and performance over shorter stints. It offers top lap times but wears out quickly, ideal for qualifying and short races.",
+        "image": "YELLOW_tire.png"
+    },
+    "4": {
+        "id": "4",
+        "type": "Slick",
+        "name": "Hard",
+        "color": "white",
+        "description": "The white tire, known as the hard compound, offers maximum durability and longevity, ideal for long stints and hot conditions.",
+        "image": "WHITE_tire.png"
     }
 }
 
@@ -100,9 +108,11 @@ def home():
 def tire_types():
     return render_template('tire_types.html', tire_info=tire_info)
 
+
 @app.route('/race_strategy')
 def race_strategy():
     return render_template('race_strategy.html')
+
 
 @app.route('/switching_tires')
 def switching_tires():
