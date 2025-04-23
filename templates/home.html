@@ -2,13 +2,16 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<div class="text-center mt-5">
-    <h1>🏎️ Formula 1 video games!</h1>
+<link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+
+<div class="home-container">
     <div>
-        <button id="tire-types-btn"><a class="navbar-brand" href="{{ url_for('tire_types') }}">Tire Types</a></button>
-        <button id="tire-types-btn"><a class="navbar-brand" href="{{ url_for('race_strategy') }}">Race Strategy</a></button>
-        <button id="tire-types-btn"><a class="navbar-brand" href="{{ url_for('switching_tires') }}">Switching Tires</a></button>
-        <button id="tire-types-btn"><a class="navbar-brand" href="{{ url_for('quiz_start') }}">Test Your Knowledge</a></button>
+        <div class="title-container">
+            <h1>🏎️ Formula 1 Video Games!</h1>
+            <div>
+                <a class="btn btn-outline-primary btn-lg" role="button" href="{{ url_for('tire_types') }}">Start Your Learning Journey</a>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
