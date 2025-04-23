@@ -165,16 +165,19 @@ def learn(lesson_num):
     else:
         switching_tires()
 
+@app.route('/learn/1')
 def tire_types():
     track_time(1)
     return render_template('tire_types.html', tire_info=tire_info)
 
 
+@app.route('/learn/2')
 def race_strategy():
     track_time(2)
     return render_template('race_strategy.html')
 
 
+@app.route('/learn/3')
 def switching_tires():
     track_time(3)
     return render_template('switching_tires.html')
