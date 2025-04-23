@@ -93,7 +93,6 @@ tire_info = {
     }
 }
 
-
 #
 #   Time Tracking
 #
@@ -156,6 +155,12 @@ def home():
 #
 # Space for Natal routes
 #
+@app.route('/advance')
+def advance():
+    if (current_lesson == 3):
+        return redirect(url_for('quiz_start'))
+    return redirect(url_for('learn', lesson_num=str(current_lesson + 1)))
+
 @app.route('/learn/<lesson_num>')
 def learn(lesson_num):
     if lesson_num == 1:

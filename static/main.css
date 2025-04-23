@@ -50,5 +50,13 @@ body {
     font-weight: bold;
     color: #007bff;
   }
+
+
+  /* Styling for Advance button that appears on every lesson page */
+  .adv-btn {
+    float:right;
+    width: 40%;
+    margin-bottom: 2%;
+  }
   
   
