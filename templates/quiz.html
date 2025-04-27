@@ -13,12 +13,15 @@
   </div>
 
   {% if question.image %}
-    {% if question.quiz_id == "2" %}
+    {% if question.quiz_id == "1" %}
       <img src="{{ url_for('static', filename='images/' ~ question.image) }}" 
-           alt="Question image" class="img-fluid my-4" style="max-width: 700px;">
+           alt="Question image" class="img-fluid d-block mx-auto my-4" style="max-width: 400px;">
+    {% elif question.quiz_id == "2" %}
+      <img src="{{ url_for('static', filename='images/' ~ question.image) }}" 
+           alt="Question image" class="img-fluid d-block mx-auto my-4" style="max-width: 700px;">
     {% else %}
       <img src="{{ url_for('static', filename='images/' ~ question.image) }}" 
-           alt="Question image" class="img-fluid my-4" style="max-width: 500px;">
+           alt="Question image" class="img-fluid d-block mx-auto my-4" style="max-width: 500px;">
     {% endif %}
   {% endif %}
 </div>
@@ -28,16 +31,20 @@
   <div class="row">
     {% for option in question["options"] %}
       {% set selected_class = '' %}
+      {% set icon = '' %}
 
       {% if show_feedback %}
         {% if option.label == selected %}
           {% if is_correct %}
             {% set selected_class = 'correct' %}
+            {% set icon = 'check.png' %}
           {% else %}
             {% set selected_class = 'incorrect' %}
+            {% set icon = 'x.png' %}
           {% endif %}
         {% elif option.label == question.correct and not is_correct %}
           {% set selected_class = 'correct' %}
+          {% set icon = 'check.png' %}
         {% endif %}
       {% endif %}
 
@@ -46,16 +53,13 @@
           <input type="radio" name="answer" value="{{ option.label }}" class="d-none" {% if option.label == selected %}checked{% endif %}>
           <div class="quiz-box text-center font-weight-bold">
             {{ option.label }}
+            {% if icon %}
+              <img src="{{ url_for('static', filename='images/' ~ icon) }}" alt="Feedback" style="height: 20px; margin-left: 10px;">
+            {% endif %}
             {% if option.img %}
-              {% if question.quiz_id == "2" %}
-                <div class="mt-2">
-                  <img src="{{ url_for('static', filename='images/' ~ option.img) }}" 
-                       alt="option image" style="height: 120px; display: block; margin: 10px auto;">
-                </div>
-              {% else %}
-                <img src="{{ url_for('static', filename='images/' ~ option.img) }}" 
-                     alt="option image" style="height: 40px; margin-left: 10px;">
-              {% endif %}
+              <div class="mt-2">
+                <img src="{{ url_for('static', filename='images/' ~ option.img) }}" alt="option image" style="height: 40px; margin-top: 10px;">
+              </div>
             {% endif %}
           </div>
         </label>
@@ -77,14 +81,6 @@
 <!-- Feedback block -->
 {% if show_feedback %}
   <div class="text-center mt-4">
-    {% if is_correct %}
-      <img src="{{ url_for('static', filename='images/check.png') }}" alt="Correct" style="height: 60px;">
-    {% else %}
-      <img src="{{ url_for('static', filename='images/x.png') }}" alt="Incorrect" style="height: 60px;">
-    {% endif %}
-  </div>
-
-  <div class="text-center">
     <a href="{{ url_for('quiz', quiz_id=next_question) }}" class="btn btn-success mt-3">Next Question</a>
   </div>
 {% endif %}
