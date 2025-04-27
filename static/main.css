@@ -1,62 +1,271 @@
 /* General body styling */
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f8f9fa;
-  }
-  
-  /* Layout for the answer option labels */
-  .quiz-option {
-    display: block;
-    cursor: pointer;
-  }
-  
-  /* Style for the quiz answer box */
-  .quiz-box {
-    padding: 1.5rem;
-    border: 2px solid #ccc;
-    border-radius: 0.25rem;
-    background-color: #f8f9fa;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  /* Hover effect */
-  .quiz-box:hover {
-    background-color: #e2e6ea;
-  }
-  
-  /* When selected (before feedback), make it blue */
-  .quiz-option input[type="radio"]:checked + .quiz-box {
-    background-color: #007bff;
-    border-color: #0056b3;
-    color: white;
-  }
-  
-  /* Feedback styling after answer is submitted */
-  .quiz-option.correct .quiz-box {
-    background-color: #28a745 !important;  /* green */
-    border-color: #1e7e34 !important;
-    color: white;
-  }
-  
-  .quiz-option.incorrect .quiz-box {
-    background-color: #dc3545 !important;  /* red */
-    border-color: #bd2130 !important;
-    color: white;
-  }
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0d0d0d;
+  color: #CCCCCC;
+  background-image: url('/static/images/f1_logo_faint.png');
+  background-repeat: repeat;
+  background-size: 1000px auto;
+  background-attachment: fixed;
+  background-position: center;
+  opacity: 1;
+}
 
-  /* Styling for the quiz score section */
-  .big-score {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #007bff;
-  }
+/* Navbar styling */
+.navbar {
+  background-color: #2F539B !important;
+}
 
+.navbar-nav .nav-link {
+  color: #CCCCCC !important;
+  font-weight: bold;
+}
 
-  /* Styling for Advance button that appears on every lesson page */
-  .adv-btn {
-    float:right;
-    width: 40%;
-    margin-bottom: 2%;
+.navbar-nav .nav-link:hover {
+  color: black !important;
+  font-weight: bold !important;
+}
+
+/* Layout for the answer option labels */
+.quiz-option {
+  display: block;
+  cursor: pointer;
+}
+
+/* Quiz title */
+h1 {
+  font-size: 2.5rem;
+  color: #2F539B;
+}
+
+/* Quiz question */
+h2 {
+  font-size: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  color: #CCCCCC;
+}
+
+/* Style for the quiz answer box */
+.quiz-box {
+  padding: 1.5rem;
+  border: 2px solid #444;
+  border-radius: 1rem;
+  background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+  color: #F8F9FA;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+
+/* Hover effect for answer boxes */
+.quiz-box:hover {
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000;
+}
+
+/* When selected (before feedback) */
+.quiz-option input[type="radio"]:checked + .quiz-box {
+  background-color: #007BFF;
+  border-color: #0056b3;
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(0,123,255,0.8);
+}
+
+/* Correct Answer Feedback */
+.quiz-option.correct .quiz-box {
+  background-color: #28a745 !important;
+  border-color: #1e7e34 !important;
+  color: white;
+  box-shadow: 0 0 10px #28a745, 0 0 20px #28a745, 0 0 30px #28a745 !important;
+}
+
+/* Incorrect Answer Feedback */
+.quiz-option.incorrect .quiz-box {
+  background-color: #DC3545 !important;
+  border-color: #bd2130 !important;
+  color: white;
+  box-shadow: 0 0 10px #DC3545, 0 0 20px #DC3545, 0 0 30px #DC3545 !important;
+}
+
+/* Styling for the quiz score section */
+.big-score {
+  font-size: 2rem;
+  font-weight: bold;
+  color: red;
+}
+
+/* Primary button (Submit, Start) */
+.btn-primary {
+  background-color: #2F539B;
+  border-color: #0056b3;
+  color: #fff;
+  border-radius: 2rem;
+  padding: 0.75rem 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #343a40;
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000;
+}
+
+/* Secondary button (Retake) */
+.btn-secondary {
+  background-color: #2F539B;
+  border-color: #343a40;
+  color: #CCCCCC;
+  border-radius: 2rem;
+  padding: 0.75rem 2rem;
+}
+
+.btn-secondary:hover {
+  background-color: #23272b;
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000;
+}
+
+/* Images styling */
+img {
+  border-radius: 1rem;
+  background-color: #1a1a1a;
+  padding: 5px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Special correct/incorrect next buttons */
+.text-center .btn-success {
+  background-color: #2F539B;
+  border-color: #343a40;
+  color: #CCCCCC;
+  border-radius: 2rem;
+  padding: 0.75rem 2rem;
+}
+
+.text-center .btn-success:hover {
+  background-color: #343a40;
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000;
+}
+
+/* Result block styling */
+.result-block {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 1rem 2rem;
+  border: 2px solid #2F539B;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 10px #2F539B, 0 0 20px #2F539B, 0 0 30px #2F539B;
+}
+
+/* Quiz block styling */
+.quiz-block {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 1rem;
+  border: 2px solid #2F539B;
+  border-radius: 1rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 10px #2F539B, 0 0 20px #2F539B, 0 0 30px #2F539B;
+}
+
+/* Divider between question and answers */
+.quiz-divider {
+  border: none;
+  height: 2px;
+  background-color: #2F539B;
+  box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000;
+  width: 90%;
+  margin: 1rem auto;
+}
+
+/* Quiz Start Page adjustments */
+
+/* Smaller overall container */
+.quiz-start-container {
+  width: 90%;
+  max-width: 900px;
+  margin: 3rem auto;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 0 20px #2F539B, 0 0 40px #FF0000;
+}
+
+/* Racing Background inside container */
+.gif-background {
+  position: relative;
+  background: url('/static/images/quiz_video.gif') no-repeat center center;
+  background-size: cover;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dark overlay to make text readable */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Racing title container */
+.racing-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+/* Burnout Text Effect */
+.burnout-text {
+  font-size: 3rem;
+  color: #ffffff;
+  animation: smoke 2s ease-in-out infinite alternate;
+  text-shadow: 0px 0px 10px #ff0000, 0px 0px 20px #ff0000;
+}
+
+/* Burnout animation */
+@keyframes smoke {
+  0% {
+    letter-spacing: normal;
+    text-shadow: 0px 0px 10px #ff0000, 0px 0px 20px #ff0000;
   }
-  
-  
+  100% {
+    letter-spacing: 3px;
+    text-shadow: 0px 0px 20px #ff0000, 0px 0px 40px #ff4500;
+  }
+}
+
+/* Start Button Pulse */
+.start-button {
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(47, 83, 155, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px 15px rgba(47, 83, 155, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(47, 83, 155, 0);
+  }
+}

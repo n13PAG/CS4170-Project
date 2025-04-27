@@ -2,27 +2,37 @@
 {% block title %}Quiz Results - F1 Tire Quiz{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
+<!-- Quiz Completed + Score inside box -->
 <div class="text-center">
+  <div class="quiz-block d-inline-block mb-4">
     <h2><strong>Quiz Completed!</strong></h2>
     <p class="lead big-score mt-3">You scored {{ score }} out of {{ total }}</p>
+  </div>
 </div>
 
 <hr>
 
+<!-- Loop through each result -->
 {% for result in results %}
-  <div class="mb-4">
+  <div class="result-block">
     <h5>{{ loop.index }}. {{ result.question }}</h5>
+
+    <hr class="quiz-divider">
+
     <p>Your answer: <strong>{{ result.user_answer }}</strong></p>
-    <p>Correct answer: <strong>{{ result.correct_answer }}</strong></p>
-    {% if result.is_correct %}
-      <p class="text-success">✔ Correct!</p>
-    {% else %}
+
+    {% if not result.is_correct %}
       <p class="text-danger">✘ Incorrect</p>
+      <p>Correct answer: <strong>{{ result.correct_answer }}</strong></p>
+    {% else %}
+      <p class="text-success">✔ Correct!</p>
     {% endif %}
   </div>
-  <hr>
 {% endfor %}
 
+<!-- Retake Quiz button -->
 <div class="text-center">
   <a href="{{ url_for('quiz_start') }}" class="btn btn-secondary">Retake Quiz</a>
 </div>

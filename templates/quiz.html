@@ -2,12 +2,15 @@
 {% block title %}Question - F1 Tire Quiz{% endblock %}
 
 {% block content %}
-<div class="text-center mb-4">
-  <h1><strong> Quiz — Question {{ question_number }} of {{ total_questions }}</strong></h1>
-</div>
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 
+<!-- Quiz title and question inside box -->
 <div class="text-center">
-  <h2>{{ question["question"] }}</h2>
+  <div class="quiz-block d-inline-block mb-4">
+    <h1>Quiz — Question {{ question_number }} of {{ total_questions }}</h1>
+    <hr class="quiz-divider">
+    <h2>{{ question["question"] }}</h2>
+  </div>
 
   {% if question.image %}
     {% if question.quiz_id == "2" %}
@@ -20,6 +23,7 @@
   {% endif %}
 </div>
 
+<!-- Quiz form and options -->
 <form method="POST" class="mt-4" id="quiz-form">
   <div class="row">
     {% for option in question["options"] %}
@@ -70,6 +74,7 @@
   {% endif %}
 </form>
 
+<!-- Feedback block -->
 {% if show_feedback %}
   <div class="text-center mt-4">
     {% if is_correct %}
@@ -84,4 +89,3 @@
   </div>
 {% endif %}
 {% endblock %}
-
