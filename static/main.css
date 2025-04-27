@@ -49,17 +49,18 @@ h2 {
 /* Style for the quiz answer box */
 .quiz-box {
   padding: 1.5rem;
-  border: 2px solid #444;
+  border: 2px solid #2F539B;
   border-radius: 1rem;
   background: #0f0f0f;
   color: #F8F9FA;
   transition: all 0.3s ease;
-  box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  box-shadow: 0 0 10px #2F539B, 0 0 20px #CCCCCC;
 }
 
 /* Hover effect for answer boxes */
 .quiz-box:hover {
   background: #CCCCCC;
+  border-color: #FF0000;
   color: black;
   box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000;
 }
@@ -67,10 +68,9 @@ h2 {
 /* When selected (before feedback) */
 .quiz-option input[type="radio"]:checked + .quiz-box {
   background-color: #2F539B;
-  border-color: #0056b3;
-  border-color: #0056b3;
+  border-color: #CCCCCC;
   color: #ffffff;
-  box-shadow: 0 0 10px #2F539B, 0 0 20px #2F539B, 0 0 30px #2F539B;
+  box-shadow: 0 0 10px #CCCCCC, 0 0 20px #2F539B, 0 0 30px #2F539B;
 }
 
 /* Correct Answer Feedback */
@@ -96,7 +96,7 @@ h2 {
   color: red;
 }
 
-/* Primary button (Submit, Start) */
+/* Primary button (Submit, Start, Next, Retake) */
 .btn-primary {
   background-color: #2F539B;
   border-color: black;
@@ -109,24 +109,8 @@ h2 {
 }
 
 .btn-primary:hover {
-  background-color: #CCCCCC;
-  border-color: black;
-  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
-  box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000;
-}
-
-/* Secondary button (Retake) */
-.btn-secondary {
-  background-color: #2F539B;
-  border-color: #343a40;
-  color: #CCCCCC;
-  border-radius: 2rem;
-  padding: 0.75rem 2rem;
-}
-
-.btn-secondary:hover {
-  background-color: #23272b;
-  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  background-color: black;
+  border-color: #CCCCCC;
   box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000;
 }
 
@@ -136,21 +120,6 @@ img {
   background-color: #1a1a1a;
   padding: 5px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-}
-
-/* Special correct/incorrect next buttons */
-.text-center .btn-success {
-  background-color: #2F539B;
-  border-color: #343a40;
-  color: #CCCCCC;
-  border-radius: 2rem;
-  padding: 0.75rem 2rem;
-}
-
-.text-center .btn-success:hover {
-  background-color: #343a40;
-  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
-  box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000;
 }
 
 /* Result block styling */
@@ -185,8 +154,6 @@ img {
 }
 
 /* Quiz Start Page adjustments */
-
-/* Smaller overall container */
 .quiz-start-container {
   width: 90%;
   max-width: 900px;
@@ -196,7 +163,6 @@ img {
   box-shadow: 0 0 20px #2F539B, 0 0 40px #FF0000;
 }
 
-/* Racing Background inside container */
 .gif-background {
   position: relative;
   background: url('/static/images/quiz_video.gif') no-repeat center center;
@@ -207,7 +173,6 @@ img {
   justify-content: center;
 }
 
-/* Dark overlay to make text readable */
 .overlay {
   position: absolute;
   top: 0;
@@ -220,7 +185,6 @@ img {
   justify-content: center;
 }
 
-/* Racing title container */
 .racing-title {
   display: flex;
   flex-direction: column;
@@ -238,7 +202,6 @@ img {
   text-shadow: 0px 0px 10px #ff0000, 0px 0px 20px #ff0000;
 }
 
-/* Burnout animation */
 @keyframes smoke {
   0% {
     letter-spacing: normal;
@@ -247,43 +210,5 @@ img {
   100% {
     letter-spacing: 3px;
     text-shadow: 0px 0px 20px #ff0000, 0px 0px 40px #ff4500;
-  }
-}
-
-/* Start Button Pulse */
-.start-button {
-  font-size: 1.5rem;
-  padding: 1rem 2rem;
-  border: none;
-  background-color: #2F539B;
-  color: white;
-  border-radius: 2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  animation: pulse 1.5s infinite;
-  transition: all 0.3s ease;
-}
-
-.start-button:hover {
-  background-color: black !important;
-  border-color: #0056b3 !important;
-  color: #CCCCCC !important;
-  box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000 !important;
-}
-
-
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(47, 83, 155, 0.7);
-  }
-  70% {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px 15px rgba(47, 83, 155, 0);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(47, 83, 155, 0);
   }
 }

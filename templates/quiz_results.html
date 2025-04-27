@@ -4,7 +4,6 @@
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 
-<!-- Quiz Completed + Score inside box -->
 <div class="text-center">
   <div class="quiz-block d-inline-block mb-4">
     <h2><strong>Quiz Completed!</strong></h2>
@@ -14,7 +13,6 @@
 
 <hr>
 
-<!-- Loop through each result -->
 {% for result in results %}
   <div class="result-block">
     <h5>{{ loop.index }}. {{ result.question }}</h5>
@@ -32,8 +30,7 @@
   </div>
 {% endfor %}
 
-<!-- Retake Quiz button -->
 <div class="text-center">
-  <a href="{{ url_for('quiz_start') }}" class="btn btn-secondary">Retake Quiz</a>
+  <a href="{{ url_for('quiz_start') }}" class="btn btn-primary">Retake Quiz</a>
 </div>
 {% endblock %}
