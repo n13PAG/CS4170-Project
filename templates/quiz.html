@@ -59,7 +59,11 @@
         <label class="quiz-option {{ selected_class }}">
           <input type="radio" name="answer" value="{{ option.label }}" class="d-none" {% if option.label == selected %}checked{% endif %}>
           <div class="quiz-box text-center font-weight-bold">
-            {{ option.label }}
+            {% if show_feedback and selected_class == 'correct' %}
+              Correct Answer: {{ option.label }}
+            {% else %}
+              {{ option.label }}
+            {% endif %}
             {% if option.img %}
               {% if question.quiz_id == "2" %}
                 <div class="mt-2">

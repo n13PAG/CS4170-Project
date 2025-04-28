@@ -76,8 +76,9 @@ h2 {
 /* Correct Answer Feedback */
 .quiz-option.correct .quiz-box {
   background-color: #28a745 !important;
-  border-color: #1e7e34 !important;
-  color: white;
+  border-color: #CCCCCC !important;
+  color: black !important;
+  font-size: 1.4rem !important;
   box-shadow: 0 0 10px #28a745, 0 0 20px #28a745, 0 0 30px #28a745 !important;
 }
 
@@ -93,11 +94,11 @@ h2 {
 .big-score {
   font-size: 2rem;
   font-weight: bold;
-  color: red;
+  color: #CCCCCC;
 }
 
 /* Primary button (Submit, Start, Next, Retake) */
-.btn-primary {
+.btn-primary, .btn-success, .btn-secondary, .start-button {
   background-color: #2F539B;
   border-color: black;
   color: #fff;
@@ -106,11 +107,13 @@ h2 {
   font-weight: bold;
   text-transform: uppercase;
   transition: background-color 0.3s, box-shadow 0.3s;
+  text-align: center;
 }
 
-.btn-primary:hover {
+.btn-primary:hover, .btn-success:hover, .btn-secondary:hover, .start-button:hover {
   background-color: black;
   border-color: #CCCCCC;
+  color: #ffffff;
   box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000;
 }
 
@@ -153,7 +156,7 @@ img {
   margin: 1rem auto;
 }
 
-/* Quiz Start Page adjustments */
+/* Quiz Start Page adjustments with MOV video */
 .quiz-start-container {
   width: 90%;
   max-width: 900px;
@@ -163,16 +166,26 @@ img {
   box-shadow: 0 0 20px #2F539B, 0 0 40px #FF0000;
 }
 
-.gif-background {
+.video-background {
   position: relative;
-  background: url('/static/images/quiz_video.gif') no-repeat center center;
-  background-size: cover;
-  min-height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
 }
 
+#racingVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+}
+
+/* Dark overlay */
 .overlay {
   position: absolute;
   top: 0;
@@ -185,6 +198,7 @@ img {
   justify-content: center;
 }
 
+/* Racing title and animation */
 .racing-title {
   display: flex;
   flex-direction: column;
@@ -194,7 +208,7 @@ img {
   text-align: center;
 }
 
-/* Burnout Text Effect */
+/* Burnout Text */
 .burnout-text {
   font-size: 3rem;
   color: #ffffff;
@@ -210,5 +224,31 @@ img {
   100% {
     letter-spacing: 3px;
     text-shadow: 0px 0px 20px #ff0000, 0px 0px 40px #ff4500;
+  }
+}
+
+/* Start Button Pulse */
+.start-button {
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  animation: pulse 1.5s infinite;
+  border: none;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(47, 83, 155, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px 15px rgba(47, 83, 155, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(47, 83, 155, 0);
   }
 }
