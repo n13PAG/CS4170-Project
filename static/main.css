@@ -1,3 +1,40 @@
+:root {
+  --background-dark: #0d0d0d;
+  --text-light: #CCCCCC;
+  --navbar-blue: #2F539B;
+  --text-hover-black: black;
+  --border-gray: #444;
+  --gradient-dark-1: #1a1a1a;
+  --gradient-dark-2: #0f0f0f;
+  --text-super-light: #F8F9FA;
+  --hover-gradient-1: #2a2a2a;
+  --hover-gradient-2: #1a1a1a;
+  --hover-red: #FF0000;
+  --radio-selected-blue: #007BFF;
+  --radio-selected-border: #0056b3;
+  --radio-selected-text: #ffffff;
+  --radio-selected-glow: rgba(0,123,255,0.8);
+  --correct-green: #28a745;
+  --correct-green-dark: #1e7e34;
+  --incorrect-red: #DC3545;
+  --incorrect-red-dark: #bd2130;
+  --score-red: red;
+  --btn-dark-gray: #343a40;
+  --btn-secondary-gray: #343a40;
+  --btn-hover-dark: #23272b;
+  --image-bg: #1a1a1a;
+  --image-shadow: rgba(255, 255, 255, 0.1);
+  --result-overlay: rgba(0, 0, 0, 0.7);
+  --quiz-divider-shadow: #FF0000;
+  --overlay-dark: rgba(0, 0, 0, 0.5);
+  --burnout-text: #ffffff;
+  --burnout-glow-1: #ff0000;
+  --burnout-glow-2: #ff4500;
+  --pulse-shadow-1: rgba(47, 83, 155, 0.7);
+  --pulse-shadow-2: rgba(47, 83, 155, 0);
+}
+
+
 /* General body styling */
 body {
   font-family: 'Segoe UI', sans-serif;

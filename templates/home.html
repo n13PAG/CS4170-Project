@@ -6,10 +6,12 @@
 
 <div class="home-container">
     <div>
-        <div class="title-container">
-            <h1>🏎️ Formula 1 Video Games!</h1>
-            <div>
-                <a class="btn btn-outline-primary btn-lg" role="button" href="{{ url_for('learn', lesson_num=1) }}">Start Your Learning Journey</a>
+        <div class="card">
+            <div class="gif-background title-container">
+                <h1><span class="icon">🏎️</span> Formula 1 Video Games!</h1>
+                <div class="start-btn">
+                    <a class="btn btn-primary btn-lg" role="button" href="{{ url_for('learn', lesson_num=1) }}">Start Your Learning Journey</a>
+                </div>
             </div>
         </div>
     </div>
