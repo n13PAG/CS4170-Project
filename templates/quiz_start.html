@@ -5,8 +5,8 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 
 <!-- Smaller container for quiz start -->
-<div class="quiz-start-container">
-  <div class="video-background">
+<div class="quiz-start-container" style="margin-top: 8rem;">
+  <div class="video-background container-fluid">
     <video autoplay muted loop id="racingVideo">
       <source src="{{ url_for('static', filename='images/quiz_video.mov') }}" type="video/mp4">
       Your browser does not support the video tag.
