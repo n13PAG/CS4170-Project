@@ -49,15 +49,20 @@
       {% endif %}
       {% endfor %}
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+    <div class="carousel-control carousel-control-prev">
+      <a class="carousel-control-link" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </div>
+    <div class="carousel-control carousel-control-next">
+      <a class="carousel-control-link" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
   </div>
+
 </div>
-<a class="btn btn-outline-primary btn-lg adv-btn" role="button" href="{{ url_for('advance') }}">Continue</a>
+<a class="btn btn-primary btn-lg adv-btn" role="button" href="{{ url_for('advance') }}">Continue</a>
 {% endblock %}

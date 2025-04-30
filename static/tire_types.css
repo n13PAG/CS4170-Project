@@ -1,3 +1,17 @@
+@import url('main.css');
+
+.carousel-container {
+  background: rgba(255, 255, 255, 0.2); /* translucent background */
+  backdrop-filter: blur(10px); /* <-- the magic! */
+  -webkit-backdrop-filter: blur(10px); /* for Safari */
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 0.01rem;
+  padding-bottom: 0.01rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
 .tire-description {
   font-size: 18px;
 }
@@ -19,16 +33,46 @@
   margin-bottom: 5%;
 }
 
+.carousel-inner {
+  margin: 2rem;
+}
+
+.carousel-control {
+  height: 90%;
+}
+
+.carousel-control-next {
+  padding: 2rem;
+  /* background-color: white; */
+  margin-left: 5rem;
+  color: white;
+}
+
+.carousel-control-prev {
+  padding: 2rem;
+  margin-right: 50rem;
+}
+
 .carousel-control-prev-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+  color: var(--navbar-blue);
+  background-color: var(--navbar-blue);
+  padding: 2rem;
+  margin-right: 15rem;
+  border-radius: 1rem;
  }
  
  .carousel-control-next-icon {
-   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+    color: var(--navbar-blue);
+    background-color: var(--navbar-blue);
+    padding: 2rem;
+    margin-left: 15rem;
+    border-radius: 1rem;
  }
 
  .indicator {
-  filter: invert(100%);
+  /* filter: invert(100%); */
  }
 
 .tire-info-container {
@@ -40,4 +84,11 @@ h1 {
   margin-bottom: 5%;
   font-size: 52px;
   font-weight: bold;
+  background-color: rgb(0, 0, 0, 0.8);
+  box-shadow: 0 0 10px #2F539B, 0 0 20px #2F539B, 0 0 30px #2F539B;
+  padding: 2rem;
+  border-radius: 2rem;
+  width: 50%;
+  align-self: center;
+  justify-self: center;
 }
