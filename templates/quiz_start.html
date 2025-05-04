@@ -5,15 +5,20 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 
 <!-- Smaller container for quiz start -->
-<div class="quiz-start-container">
-  <div class="gif-background">
+<div class="quiz-start-container" style="margin-top: 8rem;">
+  <div class="video-background container-fluid">
+    <video autoplay muted loop id="racingVideo">
+      <source src="{{ url_for('static', filename='images/quiz_video.mov') }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
     <div class="overlay">
       <div class="text-center racing-title">
         <h1 class="burnout-text">🏎️ F1 Tire Quiz 🏁</h1>
         <h2 class="mt-4">Are you ready to race?</h2>
 
         <form method="POST" class="mt-5">
-          <button type="submit" class="btn btn-primary start-button">Start Quiz</button>
+          <button type="submit" class="start-button">Start Quiz</button>
         </form>
       </div>
     </div>

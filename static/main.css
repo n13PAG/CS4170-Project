@@ -37,7 +37,7 @@
 
 /* General body styling */
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Verdana', sans-serif;
   background-color: #0d0d0d;
   color: #CCCCCC;
   background-image: url('/static/images/f1_logo_faint.png');
@@ -50,10 +50,12 @@ body {
 
 /* Navbar styling */
 .navbar {
+  font-family: 'Verdana', sans-serif;
   background-color: #2F539B !important;
 }
 
 .navbar-nav .nav-link {
+  font-family: 'Verdana', sans-serif;
   color: #CCCCCC !important;
   font-weight: bold;
 }
@@ -71,12 +73,14 @@ body {
 
 /* Quiz title */
 h1 {
-  font-size: 2.5rem;
+  font-family: 'Verdana', sans-serif;
+  font-size: 1.5rem;
   color: #2F539B;
 }
 
 /* Quiz question */
 h2 {
+  font-family: 'Verdana', sans-serif;
   font-size: 2rem;
   margin-top: 1rem;
   margin-bottom: 2rem;
@@ -85,34 +89,39 @@ h2 {
 
 /* Style for the quiz answer box */
 .quiz-box {
+  font-family: 'Verdana', sans-serif;
   padding: 1.5rem;
-  border: 2px solid #444;
+  border: 2px solid #2F539B;
   border-radius: 1rem;
-  background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+  background: #0f0f0f;
   color: #F8F9FA;
   transition: all 0.3s ease;
-  box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  box-shadow: 0 0 10px #2F539B, 0 0 20px #CCCCCC;
 }
 
 /* Hover effect for answer boxes */
 .quiz-box:hover {
-  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  background: #CCCCCC;
+  border-color: #FF0000;
+  color: black;
   box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000;
 }
 
 /* When selected (before feedback) */
 .quiz-option input[type="radio"]:checked + .quiz-box {
-  background-color: #007BFF;
-  border-color: #0056b3;
+  background-color: #2F539B;
+  border-color: #CCCCCC;
   color: #ffffff;
-  box-shadow: 0 0 15px rgba(0,123,255,0.8);
+  box-shadow: 0 0 10px #CCCCCC, 0 0 20px #2F539B, 0 0 30px #2F539B;
 }
 
 /* Correct Answer Feedback */
 .quiz-option.correct .quiz-box {
+  font-family: 'Verdana', sans-serif;
   background-color: #28a745 !important;
-  border-color: #1e7e34 !important;
-  color: white;
+  border-color: #CCCCCC !important;
+  color: black !important;
+  font-size: 1.4rem !important;
   box-shadow: 0 0 10px #28a745, 0 0 20px #28a745, 0 0 30px #28a745 !important;
 }
 
@@ -126,41 +135,30 @@ h2 {
 
 /* Styling for the quiz score section */
 .big-score {
+  font-family: 'Verdana', sans-serif;
   font-size: 2rem;
   font-weight: bold;
-  color: red;
+  color: #CCCCCC;
 }
 
-/* Primary button (Submit, Start) */
-.btn-primary {
+/* Primary button (Submit, Start, Next, Retake) */
+.btn-primary, .btn-success, .btn-secondary, .start-button {
+  font-family: 'Verdana', sans-serif;
   background-color: #2F539B;
-  border-color: #0056b3;
+  border-color: black;
   color: #fff;
   border-radius: 2rem;
   padding: 0.75rem 2rem;
   font-weight: bold;
   text-transform: uppercase;
   transition: background-color 0.3s, box-shadow 0.3s;
+  text-align: center;
 }
 
-.btn-primary:hover {
-  background-color: #343a40;
-  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
-  box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000;
-}
-
-/* Secondary button (Retake) */
-.btn-secondary {
-  background-color: #2F539B;
-  border-color: #343a40;
-  color: #CCCCCC;
-  border-radius: 2rem;
-  padding: 0.75rem 2rem;
-}
-
-.btn-secondary:hover {
-  background-color: #23272b;
-  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+.btn-primary:hover, .btn-success:hover, .btn-secondary:hover, .start-button:hover {
+  background-color: black;
+  border-color: #CCCCCC;
+  color: #ffffff;
   box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000;
 }
 
@@ -170,21 +168,6 @@ img {
   background-color: #1a1a1a;
   padding: 5px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-}
-
-/* Special correct/incorrect next buttons */
-.text-center .btn-success {
-  background-color: #2F539B;
-  border-color: #343a40;
-  color: #CCCCCC;
-  border-radius: 2rem;
-  padding: 0.75rem 2rem;
-}
-
-.text-center .btn-success:hover {
-  background-color: #343a40;
-  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
-  box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000;
 }
 
 /* Result block styling */
@@ -218,9 +201,7 @@ img {
   margin: 1rem auto;
 }
 
-/* Quiz Start Page adjustments */
-
-/* Smaller overall container */
+/* Quiz Start Page adjustments with MOV video */
 .quiz-start-container {
   width: 90%;
   max-width: 900px;
@@ -230,18 +211,26 @@ img {
   box-shadow: 0 0 20px #2F539B, 0 0 40px #FF0000;
 }
 
-/* Racing Background inside container */
-.gif-background {
+.video-background {
   position: relative;
-  background: url('/static/images/quiz_video.gif') no-repeat center center;
-  background-size: cover;
-  min-height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
 }
 
-/* Dark overlay to make text readable */
+#racingVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+}
+
+/* Dark overlay */
 .overlay {
   position: absolute;
   top: 0;
@@ -254,7 +243,7 @@ img {
   justify-content: center;
 }
 
-/* Racing title container */
+/* Racing title and animation */
 .racing-title {
   display: flex;
   flex-direction: column;
@@ -264,15 +253,15 @@ img {
   text-align: center;
 }
 
-/* Burnout Text Effect */
+/* Burnout Text */
 .burnout-text {
+  font-family: 'Verdana', sans-serif;
   font-size: 3rem;
   color: #ffffff;
   animation: smoke 2s ease-in-out infinite alternate;
   text-shadow: 0px 0px 10px #ff0000, 0px 0px 20px #ff0000;
 }
 
-/* Burnout animation */
 @keyframes smoke {
   0% {
     letter-spacing: normal;
@@ -286,23 +275,27 @@ img {
 
 /* Start Button Pulse */
 .start-button {
+  font-family: 'Verdana', sans-serif;
   font-size: 1.5rem;
   padding: 1rem 2rem;
   border-radius: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
   animation: pulse 1.5s infinite;
+  border: none;
 }
 
 @keyframes pulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(47, 83, 155, 0.7);
-  }
   70% {
+    transform: scale(1);
+    box-shadow: 0px 0px 20px #ff0000, 0px 0px 40px #ff4500;
+  }
+  90% {
     transform: scale(1.05);
-    box-shadow: 0 0 15px 15px rgba(47, 83, 155, 0);
+    box-shadow: 0px 0px 20px yellow, 0px 0px 40px yellow;
   }
   100% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(47, 83, 155, 0);
+    box-shadow: 0px 0px 20px green, 0px 0px 40px green;
   }
 }
