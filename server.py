@@ -80,7 +80,7 @@ tire_info = {
         "type": "Slick",
         "name": "Medium",
         "color": "yellow",
-        "description": "The red tire signifies the soft compound, designed for maximum grip and performance over shorter stints. It offers top lap times but wears out quickly, ideal for qualifying and short races.",
+        "description": "The yellow tire is the medium compound and offers a balance between performance and durability, providing moderate grip and longevity. It is typically used for longer stints than the soft tyre.",
         "image": "YELLOW_tire.png"
     },
     "4": {
