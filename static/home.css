@@ -21,6 +21,7 @@
     -webkit-backdrop-filter: blur(10px); /* for Safari */
     border-radius: 0.2rem;
     width: 100%;
+    padding: 1rem;
 }
 
 .card:hover {
@@ -51,9 +52,29 @@
   }
 
 
-  h1 {
+.title {
     background-color: rgb(0, 0, 0, 0.8);
     box-shadow: 0 0 10px #2F539B, 0 0 20px #2F539B, 0 0 30px #2F539B;
     padding: 2rem;
     border-radius: 2rem;
+    justify-self: center;
+    align-self: center;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-weight: bold;
+    align-self: center;
+    color:var(--text-super-light);
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    align-self: center;
+    padding-bottom: 0rem;
+    margin-bottom: 0.1rem;
 }
