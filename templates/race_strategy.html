@@ -2,42 +2,42 @@
 
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='race_strategy.css') }}">
-
+<script type="text/javascript" src="{{ url_for('static', filename = 'race_strategy.js') }}"></script>
 <div class="race-strategy-container">
     <h1>Race Startegy</h1>
     <div class="row bar">
-        <div class="col-md-4">
+        <div class="col-md-4 slide-in-left from-left">
             <div class="rs-info-0">
                 <p>In F1 race strategy, teams aim to optimize factors like tire choices, pit stops, and fuel management. Prior to every you can choose the order and type of tires you will use as well as when you expect to switch. The strategy menu will show the expected track conditions and details about your strategy</p>
                 <p>Before a race your team will give an option between two strategies. The color in indicates the tire type and the line graph represents to expected tire wear over time.</p>
             </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 slide-in-right from-right">
             <img src="../static/images/rs_menu.png" alt="Race Strategy Menu" class="img-fluid">
         </div>
     </div>
     <div class="row bar">
-        <div class="col-md-8">
+        <div class="col-md-8 slide-in-left from-left">
             <img src="../static/images/rs_tire_menu.png" alt="Tire Strategy Menu" class="img-fluid">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 slide-in-right from-right">
             <div class="rs-info-0">
                 <p>You can edit a the strategy to your liking and choose which tires to use and when you plan to switch them in the race. However, for beginners it is recommend to stick with your team’s suggestions</p>
             </div>
         </div>
     </div>
     <div class="row bar">
-        <div class="col-md-4">
+        <div class="col-md-4 slide-in-left from-left">
             <div class="rs-info-0">
                 <span class="rs-sub-title">Tire Wear</span>
                 <p>Teams switch tires due to tire wear. Tires will degrade over time due to friction from the track. More wear a tire has the less grip it has on the track making it harder to turn at speed and easier to lose control.</p>
                 <p>Uneven tire wear can make even easier to lose control of the car</p>
             </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 slide-in-left from-right">
             <img src="../static/images/tire_wear.png" alt="Tire Wear GUI" class="img-fluid">
         </div>
     </div>
-    <a class="btn btn-outline-primary btn-lg adv-btn" role="button" href="{{ url_for('advance') }}">Continue</a>
+    <a class="btn btn-primary btn-lg adv-btn" role="button" href="{{ url_for('advance') }}">Continue</a>
 </div>
 {% endblock %}
