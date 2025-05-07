@@ -1,52 +1,64 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<link rel="stylesheet" href="{{ url_for('static', filename='switching_tires.css') }}">
-
+<link rel="stylesheet" href="{{ url_for('static', filename='race_strategy.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename = 'race_strategy.js') }}"></script>
 <div class="swt-container">
     <div class="row bar">
-        <div class="col-md-4">
+        <div class="col-md-4 slide-in-left from-left">
             <div class="rs-info-0">
-                <h1>Switching Tires</h1>
+                <h1 class="title-within">Switching Tires</h1>
                 <span class="rs-sub-title">The Interface</span>
                 <p>This is interface you will see during a race. It shows your track position, sector times and delta's between drivers</p>
             </div>
         </div>    
-        <div class="col-md-8">
+        <div class="col-md-8 slide-in-right from-right">
             <img src="../static/images/interface.png" alt="In game GUI" class="img-fluid">
         </div>
     </div>
     <div class="row bar">
-        <div class="col-md-8">
+        <div class="col-md-8 slide-in-left from-left">
             <img src="../static/images/team_radio.png" alt="Team Radio" class="img-fluid">
         </div>
-        <div class="col-md-4">
-            <p>In bottom right hand corner are two ways to communicate with your team and the respective buttons you need to press to open the communication menu</p>            
+        <div class="col-md-4 slide-in-right from-right">
+            <p>In the bottom right hand corner are two ways to communicate with your team and the respective buttons you need to press to open the communication menu</p>            
         </div>
     </div>
     <div class="row bar">
-        <div class="col-md-4">
+        <div class="col-md-4 slide-in-left from-left">
+            <span class="rs-sub-title">The Grid Tower</span>
             <p>The Grid Tower shows the current lap, the deltas between drivers and the current tire type of the car.</p>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 slide-in-right from-right">
             <img src="../static/images/grid_tower.png" alt="Grid tower" class="img-fluid">
         </div>
     </div>
     <div class="row bar">
-        <div class="col-md-8">
+        <div class="col-md-8 slide-in-left from-left">
             <img src="../static/images/team_radio.png" alt="Team Radio Menu" class="img-fluid">
         </div>
-        <div class="col-md-4 left-aligned bottom-aligned">
+        <div class="col-md-4 slide-in-right from-right left-aligned bottom-aligned">
             <span class="rs-sub-title">The Team Radio Menu</span> 
             <p>This shows which buttons to press to access your team radio. If you have a mic you can access the voice commands. Alternatively you can open the communications menu</p>
         </div>
     </div>
-    <div class="interface-bg">
+    <div class="row bar">
+        <div class="col-md-4 slide-in-left from-left left-aligned bottom-aligned">
+            <span class="rs-sub-title">The Communication Menu</span> 
+            <p>From this menu you can ask for information from your team.</p>
+            <p>You can choose which tires to switch to during the next pit stop</p>
+            <p>You can ask your to be ready for a pit stop this lap. You can do this by choosing the <strong>Box This Lap</strong> option</p>
+        </div>
+        <div class="col-md-8 slide-in-right from-right">
+            <img src="../static/images/comms_menu.png" alt="Team Radio Menu" class="img-fluid">
+        </div>
+    </div>
+    <!-- <div class="interface-bg">
 
     </div>
     <div class="interface-bg">
 
-    </div>
+    </div> -->
     <a class="btn btn-primary btn-lg adv-btn" role="button" href="{{ url_for('advance') }}">Continue</a>
 </div>
 {% endblock %}
